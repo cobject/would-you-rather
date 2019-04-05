@@ -5,16 +5,12 @@ import App from './components/App';
 import reducers from './reducers'
 import middlewares from './middlewares'
 import { createStore } from 'redux'
-// import * as API from './utils/API' // XXX
+import { Provider } from 'react-redux'
 
 const store = createStore(reducers, middlewares)
 ReactDOM.render(
-    <App store={store}/>,
+    <Provider store={store}>
+        <App />
+    </Provider>,    
     document.getElementById('root')
 );
-
-// XXX
-// API._getQuestions()
-//     .then((questions) => console.log(questions))
-// API._getUsers()
-//     .then((users) => console.log(users))

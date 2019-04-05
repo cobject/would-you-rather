@@ -1,16 +1,16 @@
-export const LOGIN_USER = 'LOGIN_USER'
-export const LOGOUT_USER = 'LOGOUT_USER'
+export const LOG_IN = 'LOG_IN'
+export const LOG_OUT = 'LOG_OUT'
 
-function loginUser(id) {
+export function logIn(id) {
     return {
-        type: LOGIN_USER,
+        type: LOG_IN,
         id
     }
 }
 
-function logoutUser(id) {
+function logOut(id) {
     return {
-        type: LOGOUT_USER
+        type: LOG_OUT
     }
 }
 

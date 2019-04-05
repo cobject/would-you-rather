@@ -1,14 +1,20 @@
 import * as API from '../utils/API'
 import { receiveQuestions } from './questions'
 import { receiveUsers } from './users'
-// import { showLoading, hideLoading } from 'react-redux-loading'
+import { logIn } from './authedUser'
+import { showLoading, hideLoading } from 'react-redux-loading'
+
+const AUTHED_ID = '"johndoe"'
 
 export function handleInitialData() {
     return (dispatch) => {
+        dispatch(showLoading())
         return API._getInitialData()
             .then(({users, questions}) => {
                 dispatch(receiveQuestions(questions))
                 dispatch(receiveUsers(users))
+                dispatch(logIn(AUTHED_ID))
+                dispatch(hideLoading())    
             })
     }
 }
