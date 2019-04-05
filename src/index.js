@@ -5,7 +5,7 @@ import App from './components/App';
 import reducers from './reducers'
 import middlewares from './middlewares'
 import { createStore } from 'redux'
-import * as API from './utils/API' // XXX
+// import * as API from './utils/API' // XXX
 
 const store = createStore(reducers, middlewares)
 ReactDOM.render(
@@ -14,7 +14,7 @@ ReactDOM.render(
 );
 
 // XXX
-API._getQuestions()
-    .then((questions) => console.log(questions))
-API._getUsers()
-    .then((users) => console.log(users))
+// API._getQuestions()
+//     .then((questions) => console.log(questions))
+// API._getUsers()
+//     .then((users) => console.log(users))
