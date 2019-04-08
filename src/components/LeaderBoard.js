@@ -1,20 +1,28 @@
 import React, { Component} from 'react'
 import { connect } from 'react-redux'
+import User from './User'
 
 class LeaderBoard extends Component {
     render() {
         return (
             <div>
-                LeaderBoard
+                {this.props.users.map( (user) => (
+                    <User key={user.id} id={user.id}/>
+                ))}
             </div>
         )
     }
 }
 
-function mapStateToProps({questions, authedUser}) {
+function mapStateToProps({users}) {
     return {
-        questions,
-        authedUser
+        users: Object.keys(users)
+            .map( (key, index) => (users[key]))
+            .sort((a, b) => {
+                const scoreA = Object.keys(a.answers).length + a.questions.length
+                const scoreB = Object.keys(b.answers).length + b.questions.length
+                return scoreB - scoreA
+            })
     }
 }
 

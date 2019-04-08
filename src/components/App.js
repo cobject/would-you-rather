@@ -25,6 +25,7 @@ class App extends Component {
           // : <LogIn />
           // : <Answer id={'8xf0y6ziyjabvozdd253nd'}/>
           : <QuestionPage />
+          // : <LeaderBoard />
         }
         {/* <LeaderBoard /> */}
       </div>

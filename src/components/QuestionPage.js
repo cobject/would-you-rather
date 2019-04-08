@@ -6,8 +6,8 @@ class QuestionPage extends Component {
     render() {
         return (
             <div>
-                {Object.keys(this.props.questions).map((key, index) => (
-                    <Question id={this.props.questions[key].id}/>
+                {this.props.questions.map((question) => (
+                    <Question id={question.id} key={question.id}/>
                 ))}
                 <hr />
             </div>
@@ -15,10 +15,9 @@ class QuestionPage extends Component {
     }
 }
 
-function mapStateToProps({questions, authedUser}) {
+function mapStateToProps({questions}) {
     return {
-        questions,
-        authedUser
+        questions: Object.keys(questions).map((key) => questions[key])
     }
 }
 
