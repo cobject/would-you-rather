@@ -23,10 +23,10 @@ class App extends Component {
           // : <Result id={'6ni6ok3ym7mf1p33lnez' /* FIXME */}/>
           // : <NewQuestion/>
           // : <LogIn />
-          : <Answer id={'8xf0y6ziyjabvozdd253nd'}/>
+          // : <Answer id={'8xf0y6ziyjabvozdd253nd'}/>
+          : <QuestionPage />
         }
-        <QuestionPage />
-        <LeaderBoard />
+        {/* <LeaderBoard /> */}
       </div>
     );
   }
