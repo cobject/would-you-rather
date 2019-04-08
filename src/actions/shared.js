@@ -23,7 +23,7 @@ export function handleSaveQuestionAnswer(authedUser, qid, answer) {
     return (dispatch) => {
         return API.saveQuestionAnswer({ authedUser, qid, answer })
             .then(() => {
-                // TODO
+                dispatch(handleInitialData())
             })
             .catch(() => {
                 console.log('error')

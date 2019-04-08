@@ -1,12 +1,11 @@
 import React, { Component} from 'react'
 import { connect } from 'react-redux'
-import Question from './Question'
 
-class QuestionPage extends Component {
+class LeaderBoard extends Component {
     render() {
         return (
             <div>
-                <Question />
+                LeaderBoard
             </div>
         )
     }
@@ -19,4 +18,4 @@ function mapStateToProps({questions, authedUser}) {
     }
 }
 
-export default connect(mapStateToProps)(QuestionPage)
+export default connect(mapStateToProps)(LeaderBoard)
