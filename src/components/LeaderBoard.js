@@ -17,7 +17,7 @@ class LeaderBoard extends Component {
 function mapStateToProps({users}) {
     return {
         users: Object.keys(users)
-            .map( (key, index) => (users[key]))
+            .map( (key) => (users[key]))
             .sort((a, b) => {
                 const scoreA = Object.keys(a.answers).length + a.questions.length
                 const scoreB = Object.keys(b.answers).length + b.questions.length

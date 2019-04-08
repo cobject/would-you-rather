@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { handleInitialData } from '../actions/shared'
 import { connect } from 'react-redux'
-// import Result from './Result'
-// import NewQuestion from './NewQuestion'
-// import LogIn from './LogIn'
-import Answer from './Answer'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import NewQuestion from './NewQuestion'
+import LogIn from './LogIn'
 import QuestionPage from './QuestionPage'
 import LeaderBoard from './LeaderBoard'
+import Nav from './Nav'
 import { LoadingBar } from 'react-redux-loading'
 
 class App extends Component {
@@ -15,28 +15,33 @@ class App extends Component {
   }
 
   render() {
+    const { authedUser, loading } = this.props
     return (
-      <div>
-        <LoadingBar />
-        {this.props.loading === true
-          ? null
-          // : <Result id={'6ni6ok3ym7mf1p33lnez' /* FIXME */}/>
-          // : <NewQuestion/>
-          // : <LogIn />
-          // : <Answer id={'8xf0y6ziyjabvozdd253nd'}/>
-          : <QuestionPage />
-          // : <LeaderBoard />
-        }
-        {/* <LeaderBoard /> */}
-      </div>
+      <Router>
+        <div className='container'>
+          <LoadingBar />
+          <Nav user={this.props.users[authedUser]} dispatch={this.props.dispatch} />
+          {!authedUser
+            ? <LogIn />
+            : loading
+              ? null
+              : <div>
+                  <Route path='/' exact component={QuestionPage}/>
+                  <Route path='/new' exact component={NewQuestion}/>
+                  <Route path='/ranking' exact component={LeaderBoard}/>
+                </div>
+          }
+        </div>
+      </Router>
     );
   }
 }
 
-function mapStateToProps({authedUser}) {
+function mapStateToProps({users, authedUser}) {
   return {
-    loading: authedUser == null
-
+    loading: authedUser == null,
+    authedUser,
+    users
   }
 }
 

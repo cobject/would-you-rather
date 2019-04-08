@@ -1,11 +1,13 @@
 import React, { Component} from 'react'
 import { connect } from 'react-redux'
 import { handleAddQuestion } from '../actions/questions'
+import { Redirect } from 'react-router-dom'
 
 class NewQuestion extends Component {
     state = {
         optionOne: '',
-        optionTwo: ''
+        optionTwo: '',
+        toHome: false
     }
 
     handleChange = (e) => {
@@ -26,12 +28,17 @@ class NewQuestion extends Component {
             optionTwoText: optionTwo,
             author: authedUser
         }))
-        // TODO: redirect
+        this.setState({
+            toHome: true
+        })
     }
 
     render() {
         const { optionOne, optionTwo } = this.state
 
+        if(this.state.toHome === true) {
+            return <Redirect to='/' />
+        }
         return (
             <div>
                 <h1>Create New Question</h1>
