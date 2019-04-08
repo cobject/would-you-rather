@@ -24,11 +24,14 @@ function answerQuestion(question) {
     }
 }
 
-export function handleAddQuestion() {
+export function handleAddQuestion(question) {
+    console.log('handleAddQuestion1')
     return (dispatch) => {
-        return {
-            // TODO
-        }
+        return API.saveQuestion(question)
+                .then((formattedQuestion) => {
+                    console.log('handleAddQuestion2', formattedQuestion);
+                    dispatch(addQuestion(formattedQuestion))
+                })
     }
 }
 
