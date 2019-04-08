@@ -6,7 +6,10 @@ class QuestionPage extends Component {
     render() {
         return (
             <div>
-                <Question id={'6ni6ok3ym7mf1p33lnez'}/>
+                {Object.keys(this.props.questions).map((key, index) => (
+                    <Question id={this.props.questions[key].id}/>
+                ))}
+                <hr />
             </div>
         )
     }
