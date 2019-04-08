@@ -1,19 +1,18 @@
 import React, { Component} from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 class Question extends Component {
-    handleViewPoll = (e) => {
-        e.preventDefault()
-        // TODO: redirect
-    }
-
     render() {
         return (
             <div>
                 <h1>{this.props.question.author}</h1>
                 <div>
                     <div>...would you...</div>
-                    <button onClick={this.handleViewPoll}>View Poll</button>
+                    {/* TODO: answer or result */}
+                    <Link to={`/question/${this.props.id}`}>
+                        <button>View Poll</button>
+                    </Link>
                 </div>
             </div>
         )

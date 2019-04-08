@@ -6,6 +6,8 @@ import NewQuestion from './NewQuestion'
 import LogIn from './LogIn'
 import QuestionPage from './QuestionPage'
 import LeaderBoard from './LeaderBoard'
+import Result from './Result'
+import Answer from './Answer'
 import Nav from './Nav'
 import { LoadingBar } from 'react-redux-loading'
 
@@ -28,6 +30,8 @@ class App extends Component {
               : <div>
                   <Route path='/' exact component={QuestionPage}/>
                   <Route path='/new' exact component={NewQuestion}/>
+                  <Route path='/question/:id' exact component={Result} />
+                  <Route path='/answer/:id' exact component={Answer} />
                   <Route path='/ranking' exact component={LeaderBoard}/>
                 </div>
           }

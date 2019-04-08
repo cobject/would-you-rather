@@ -25,7 +25,8 @@ class Result extends Component {
     }
 }
 
-function mapStateToProps({questions, users}, {id}) {
+function mapStateToProps({questions, users}, props) {
+    const { id } = props.match.params
     return {
         question: questions[id],
         creater: users[questions[id].author].name
