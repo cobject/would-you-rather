@@ -21,6 +21,7 @@ export function handleSaveQuestionAnswer(authedUser, qid, answer) {
     return (dispatch) => {
         return API.saveQuestionAnswer({ authedUser, qid, answer })
             .then(() => {
+                console.log('success')
                 dispatch(handleInitialData())
             })
             .catch(() => {

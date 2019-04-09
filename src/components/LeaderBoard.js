@@ -5,7 +5,7 @@ import User from './User'
 class LeaderBoard extends Component {
     render() {
         return (
-            <div>
+            <div className='container'>
                 {this.props.users.map( (user) => (
                     <User key={user.id} id={user.id}/>
                 ))}

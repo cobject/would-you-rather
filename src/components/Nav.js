@@ -9,7 +9,6 @@ class Nav extends Component {
     }
 
     render() {
-        console.log('nav', this.props.user)
         return (
             <nav className='nav'>
                 <ul>
@@ -23,7 +22,14 @@ class Nav extends Component {
                         <NavLink to='/ranking' exact activeClassName='active'>Leader board</NavLink>
                     </li>
                     {this.props.user ? <li>hello, {this.props.user.name}</li> : null}
-                    {this.props.user ? <li>avatar</li> : null}
+                    {this.props.user
+                        ? <li>
+                            <img
+                                src={this.props.user.avatarURL}
+                                alt={`Avatar of ${this.props.user.name}`}
+                                className='avatar'/>
+                          </li>
+                        : null}
                     {this.props.user ? <li><button onClick={this.handleLogOut}>Logout</button></li> : null }
                 </ul>
             </nav>

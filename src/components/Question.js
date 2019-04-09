@@ -5,10 +5,15 @@ import { Link } from 'react-router-dom'
 class Question extends Component {
     render() {
         return (
-            <div>
-                <h1>{this.props.question.author}</h1>
+            <div className='question'>
+                <img
+                    src={this.props.avatarURL}
+                    alt={`Avatar of ${this.props.question.author}`}
+                    className='avatar'
+                />
+                <div className='question-info center'>
+                    <h1>{this.props.question.author}</h1>
                 
-                <div>
                     <div>...would you...</div>
                     {this.props.isAnswered === true
                         ? <Link to={`/question/${this.props.id}`}>
@@ -27,6 +32,7 @@ class Question extends Component {
 
 function mapStateToProps({questions, users, authedUser}, {id}) {
     return {
+        avatarURL: users[questions[id].author].avatarURL,
         question: questions[id],
         isAnswered: Object.keys(users[authedUser].answers).filter((key) => (key === id)).length > 0
     }

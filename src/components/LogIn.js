@@ -24,10 +24,11 @@ class LogIn extends Component {
     }
 
     render() {
-        console.log(this.props.users)
         return (
-            <div>
-                <h1>Welcome to the would you rather app</h1>
+            <div className='sign-in'>
+                <div>
+                    <h1>Welcome to the would you rather app</h1>
+                </div>
                 <div>
                     <div>
                         <h3>sign in</h3>
@@ -37,8 +38,8 @@ class LogIn extends Component {
                             ))}
                         </select>
                     </div>
-                    <button onClick={this.handleLogIn}>SignIn</button>
                 </div>
+                <button className='btn' onClick={this.handleLogIn}>SignIn</button>
             </div>
         )
     }

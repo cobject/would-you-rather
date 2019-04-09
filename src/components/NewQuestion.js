@@ -13,7 +13,7 @@ class NewQuestion extends Component {
     handleChange = (e) => {
         e.preventDefault()
         this.setState({
-            [e.target.className]: e.target.value
+            [e.target.id]: e.target.value
         })
     }
 
@@ -40,14 +40,17 @@ class NewQuestion extends Component {
             return <Redirect to='/' />
         }
         return (
-            <div>
+            <div className='new-question'>
                 <h1>Create New Question</h1>
                 <div>
                     <div>complete the question</div>
                     <h3>Would you rather</h3>
                     <form className='new-question' onSubmit={this.handleSubmit}>
-                        <textarea className='optionOne' onChange={this.handleChange} value={optionOne} />
-                        <textarea className='optionTwo' onChange={this.handleChange} value={optionTwo} />
+                        <textarea className='textarea' id={'optionOne'} onChange={this.handleChange} value={optionOne} />
+                        <br/>
+                        <div className='center'>Or</div>
+                        <br/>
+                        <textarea className='textarea' id={'optionTwo'} onChange={this.handleChange} value={optionTwo} />
                         <button
                         className='btn'
                         type='submit'
