@@ -3,6 +3,15 @@ import { connect } from 'react-redux'
 import { handleSaveQuestionAnswer } from '../actions/shared'
 
 class Answer extends Component {
+    state = {
+        answer: 'optionOne'
+    }
+
+    handleChange = (e) => {
+        e.preventDefault()
+        console.log(e.target.value)
+    }
+
     handleSubmit = (e) => {
         e.preventDefault()
         console.log(this.props)
@@ -19,14 +28,20 @@ class Answer extends Component {
     }
 
     render() {
+        const { question, optionOne, optionTwo } = this.props
+
         return (
             <div>
-                <h3>{this.props.question.author} asked:</h3>
+                <h3>{question.author} asked:</h3>
                 <div>
                     <div>avatar</div>
                     <div>
-                        <h3>Would you rather...</h3>
-                        <button onClick={this.handleSubmit}>submit</button>
+                        <h3 className='center'>Would you rather...</h3>
+                        <form className='new-tweet' onChange={this.handleChange}>
+                            <input type='radio' value={'optionOne'} checked={this.state.answer}/>{optionOne}
+                            <input type='radio' value={'optionTwo'} />{optionTwo}
+                            <button className='btn'>Submit</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -34,9 +49,12 @@ class Answer extends Component {
     }
 }
 
-function mapStateToProps({questions, authedUser}, {id}) {
+function mapStateToProps({questions, authedUser}, props) {
+    const { id } = props.match.params
     return {
         question: questions[id],
+        optionOne: questions[id].optionOne.text,
+        optionTwo: questions[id].optionTwo.text,
         authedUser
     }
 }

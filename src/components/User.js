@@ -7,8 +7,11 @@ class User extends Component {
         const score = answered + created
         return (
             <div>
-                <div className='user-avatar'>
-                </div>
+                <img
+                    src={users[id].avatarURL}
+                    alt={`Avatar of ${users[id].name}`}
+                    className='avatar'
+                />
                 <h1>{users[id].name}</h1>
                 <div>Answered question: {answered}</div>
                 <div>Created question: {created}</div>

@@ -1,7 +1,6 @@
 import * as API from '../utils/API'
 import { receiveQuestions } from './questions'
 import { receiveUsers } from './users'
-import { logIn } from './authedUser'
 import { showLoading, hideLoading } from 'react-redux-loading'
 
 // const AUTHED_ID = 'johndoe'

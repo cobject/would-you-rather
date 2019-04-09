@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import { handleInitialData } from '../actions/shared'
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { LoadingBar } from 'react-redux-loading'
+// acions
+import { handleInitialData } from '../actions/shared'
+// components
 import NewQuestion from './NewQuestion'
 import LogIn from './LogIn'
 import QuestionPage from './QuestionPage'
@@ -9,7 +12,6 @@ import LeaderBoard from './LeaderBoard'
 import Result from './Result'
 import Answer from './Answer'
 import Nav from './Nav'
-import { LoadingBar } from 'react-redux-loading'
 
 class App extends Component {
   componentDidMount() {
@@ -17,16 +19,18 @@ class App extends Component {
   }
 
   render() {
-    const { authedUser, loading } = this.props
+    const { authedUser, loading, users } = this.props
+    console.log(authedUser) 
     return (
       <Router>
         <div className='container'>
           <LoadingBar />
-          <Nav user={this.props.users[authedUser]} dispatch={this.props.dispatch} />
-          {!authedUser
-            ? <LogIn />
-            : loading
-              ? null
+          <Nav user={users[authedUser]} dispatch={this.props.dispatch} />
+
+          {loading === true
+            ? null
+            : !authedUser
+              ? <LogIn />
               : <div>
                   <Route path='/' exact component={QuestionPage}/>
                   <Route path='/new' exact component={NewQuestion}/>
@@ -43,7 +47,7 @@ class App extends Component {
 
 function mapStateToProps({users, authedUser}) {
   return {
-    loading: authedUser == null,
+    loading: users === null,
     authedUser,
     users
   }

@@ -1,17 +1,27 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { logIn, logOut } from '../actions/authedUser'
+import { logIn } from '../actions/authedUser'
 
 class LogIn extends Component {
-    handleLogIn = (e) => {
-        e.preventDefault()
-        this.props.dispatch(logIn('sarahedo'))
+    state = {
+        user: ''
     }
 
-    // handleLogOut = (e) => {
-    //     e.preventDefault()
-    //     this.props.dispatch(logOut())
-    // }
+    handleLogIn = (e) => {
+        e.preventDefault()
+        if(this.state.user === '') {
+            this.props.dispatch(logIn(this.props.users[0].id))    
+        } else {
+            this.props.dispatch(logIn(this.state.user))
+        }
+    }
+
+    handleSelect = (e) => {
+        e.preventDefault()
+        this.setState({
+            user: e.target.value
+        })
+    }
 
     render() {
         console.log(this.props.users)
@@ -19,22 +29,15 @@ class LogIn extends Component {
             <div>
                 <h1>Welcome to the would you rather app</h1>
                 <div>
-                    <h3>sign in</h3>
-                    <ul>
-                        {Object.keys(this.props.users).map((key, idx) => (
-                            <li key={key}>{this.props.users[key].name}</li>
-                        ))}
-                    </ul>
-                    <button
-                        onClick={this.handleLogIn}
-                        >
-                            SignIn
-                    </button>
-                    {/* <button
-                        onClick={this.handleLogOut}
-                        >
-                            SignOut
-                    </button> */}
+                    <div>
+                        <h3>sign in</h3>
+                        <select onChange={this.handleSelect}>
+                            {this.props.users.map( (user) => (
+                                <option key={user.id} value={user.id}>{user.name}</option>
+                            ))}
+                        </select>
+                    </div>
+                    <button onClick={this.handleLogIn}>SignIn</button>
                 </div>
             </div>
         )
@@ -43,7 +46,7 @@ class LogIn extends Component {
 
 function mapStateToProps({users}) {
     return {
-        users
+        users: Object.keys(users).map((key) => users[key])
     }
 }
 

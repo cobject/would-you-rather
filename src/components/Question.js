@@ -7,22 +7,28 @@ class Question extends Component {
         return (
             <div>
                 <h1>{this.props.question.author}</h1>
+                
                 <div>
                     <div>...would you...</div>
-                    {/* TODO: answer or result */}
-                    <Link to={`/question/${this.props.id}`}>
-                        <button>View Poll</button>
-                    </Link>
+                    {this.props.isAnswered === true
+                        ? <Link to={`/question/${this.props.id}`}>
+                            <button>View Poll</button>
+                          </Link>
+                        : <Link to={`/answer/${this.props.id}`}>
+                            <button>View Poll</button>
+                          </Link>
+                    }
+                    
                 </div>
             </div>
         )
     }
 }
 
-function mapStateToProps({questions, authedUser}, {id}) {
-    console.log(id)
+function mapStateToProps({questions, users, authedUser}, {id}) {
     return {
-        question: questions[id]
+        question: questions[id],
+        isAnswered: Object.keys(users[authedUser].answers).filter((key) => (key === id)).length > 0
     }
 }
 
