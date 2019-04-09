@@ -1,68 +1,50 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project: Would you rather?
 
-## Available Scripts
+In the "Would You Rather?" Project, I made a web app that lets a user play the “Would You Rather?” game.
 
-In the project directory, you can run:
+In your app, users will be able to answer questions, see which questions they haven’t answered, see how other people have voted, post questions, and see the ranking of users on the leaderboard.. Backend data is from [Would you rather starter](https://github.com/udacity/reactnd-project-would-you-rather-starter).
 
-### `npm start`
+# Objectives
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. State management using redux
+2. Routing views
+3. Meet functionality
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+# Installation
 
-### `npm test`
+1. install package
+   `$npm install`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. start application
+   `$npm start`
 
-### `npm run build`
+# Checklist
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## LogIn Flow
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+- [x] Does the application have a way to log in and log out?
+- [x] Does the application work correctly regardless of which person the user impersonates?
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Application Functionality
 
-### `npm run eject`
+- [x] Does the home page have the desired functionality?
+- [x] Are the polling questions listed in the correct category (Unanswered vs Answered), and do they have the desired functionality on the home page?
+- [x] Are the details of each poll displayed with all of the relevant information?
+- [x] Does the voting mechanism work correctly? 
+- [x] Can users add new polls?
+- [x] Does the leaderboard work correctly and have the desired functionality? 
+- [x] Is the application navigable?
+- [x] Does the application interact with the backend correctly?
+- [x] Does the code run without errors? Is the code free of warnings that resulted from not following the best practices listed in the documentation, such as using key for list items? Is the code formatted properly? 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Architecture
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [x] Does the store serve as the application’s single source of truth?
+- [x] Is application state managed by Redux?
+- [x] Does application state update correctly?
+- [x] Does the architecture of the application make sense? 
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Lessons learned
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+1. State management in React
+2. Routing in React
