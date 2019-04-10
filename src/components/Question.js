@@ -15,7 +15,7 @@ class Question extends Component {
                     <h1>{this.props.question.author}</h1>
                 
                     <div>...would you...</div>
-                    {this.props.isAnswered === true
+                    {this.props.category === 'answered'
                         ? <Link to={`/question/${this.props.id}`}>
                             <button>View Poll</button>
                           </Link>
