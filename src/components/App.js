@@ -20,7 +20,6 @@ class App extends Component {
 
   render() {
     const { authedUser, loading, users } = this.props
-    console.log(authedUser) 
     return (
       <Router>
         <div className='container'>

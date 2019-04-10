@@ -20,7 +20,6 @@ class QuestionPage extends Component {
         }).sort((a, b) => {
             return b.timestamp - a.timestamp
         })
-        console.log(filteredQuestions)
 
         return (
             <div>
