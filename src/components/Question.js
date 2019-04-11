@@ -15,7 +15,7 @@ class Question extends Component {
                     <h1>{this.props.question.author}</h1>
                 
                     <div>...would you...</div>
-                    <Link to={`/questions/${this.props.id}`} category={this.props.category}>
+                    <Link to={`/questions/${this.props.id}`}>
                         <button>View Poll</button>
                     </Link>
                 </div>

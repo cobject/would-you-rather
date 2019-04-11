@@ -20,7 +20,6 @@ class App extends Component {
 
   render() {
     const { authedUser, loading, users } = this.props
-    console.log('app', this.props)
     return (
       <Router>
           <div className='container'>
@@ -36,7 +35,7 @@ class App extends Component {
                     <Route path='/add' exact component={NewQuestion}/>
                     <Route path='/questions/:id' exact component={QuestionDetail} />
                     <Route path='/leaderboard' exact component={LeaderBoard}/>
-                    <Route path='/*' component={PageNotFound}/>
+                    <Route path='/404' exact component={PageNotFound}/>
                   </div>
             }
           </div>
@@ -46,7 +45,6 @@ class App extends Component {
 }
 
 function mapStateToProps({users, authedUser}, props) {
-  console.log('app', props)
   return {
     loading: Object.keys(users).length === 0,
     authedUser,

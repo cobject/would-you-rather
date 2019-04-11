@@ -11,34 +11,9 @@ export function receiveQuestions(questions) {
     }
 }
 
-function addQuestion(question) {
+export function addQuestion(question) {
     return {
         type: ADD_QUESTION,
         question
-    }
-}
-
-function answerQuestion(question) {
-    return {
-        // TODO
-    }
-}
-
-export function handleAddQuestion(question) {
-    console.log('handleAddQuestion1')
-    return (dispatch) => {
-        return API.saveQuestion(question)
-                .then((formattedQuestion) => {
-                    console.log('handleAddQuestion2', formattedQuestion);
-                    dispatch(addQuestion(formattedQuestion))
-                })
-    }
-}
-
-export function handleAnswerQuestion() {
-    return (dispatch) => {
-        return {
-            // TODO
-        }
     }
 }

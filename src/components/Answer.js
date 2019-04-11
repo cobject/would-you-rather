@@ -18,7 +18,8 @@ class Answer extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         const authedUser = this.props.authedUser;
-        const { id } = this.props.match.params
+        const { id } = this.props
+        console.log(this.props)
         this.props.dispatch(handleSaveQuestionAnswer(
             authedUser,
             id,
@@ -68,6 +69,7 @@ class Answer extends Component {
 
 function mapStateToProps({users, questions, authedUser}, {id}) {
     return {
+        id,
         question: questions[id],
         avatarURL: users[questions[id].author].avatarURL,
         optionOne: questions[id].optionOne.text,

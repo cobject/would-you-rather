@@ -1,9 +1,7 @@
 import * as API from '../utils/API'
-import { receiveQuestions } from './questions'
-import { receiveUsers } from './users'
+import { receiveQuestions, addQuestion } from './questions'
+import { receiveUsers, askQuestion } from './users'
 import { showLoading, hideLoading } from 'react-redux-loading'
-
-// const AUTHED_ID = 'johndoe'
 
 export function handleInitialData() {
     return (dispatch) => {
@@ -27,5 +25,15 @@ export function handleSaveQuestionAnswer(authedUser, qid, answer) {
             .catch(() => {
                 console.log('error')
             })
+    }
+}
+
+export function handleAddQuestion(question, asker) {
+    return (dispatch) => {
+        return API.saveQuestion(question)
+                .then((formattedQuestion) => {
+                    dispatch(addQuestion(formattedQuestion, asker))
+                    dispatch(askQuestion(asker, formattedQuestion.id))
+                })
     }
 }

@@ -6,16 +6,16 @@ import { connect } from 'react-redux'
 
 class QuestionDetail extends Component {
     render() {
-        console.log('q', this.props)
+        const { answered  } = this.props
+
         if(!this.props.valid) {
             return (
                 <Redirect to='/404' />
             )
         }
-
         return (
             <div>
-                {this.props.category === 'answered'
+                {answered
                     ? <Result id={this.props.match.params.id}/>
                     : <Answer id={this.props.match.params.id}/>
                 }
@@ -24,10 +24,13 @@ class QuestionDetail extends Component {
     }
 }
 
-function mapStateToProps({questions}, props) {
+function mapStateToProps({authedUser, users, questions}, props) {
     const { id } = props.match.params
     return {
+        authedUser,
+        users,
         id: id,
+        answered: Object.keys(users[authedUser].answers).map((key) => key).includes(id),
         valid: questions[id] !== undefined
     }
 }
