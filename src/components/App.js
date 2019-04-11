@@ -10,6 +10,7 @@ import LogIn from './LogIn'
 import QuestionPage from './QuestionPage'
 import LeaderBoard from './LeaderBoard'
 import QuestionDetail from './QuestionDetail'
+import PageNotFound from './PageNotFound'
 import Nav from './Nav'
 
 class App extends Component {
@@ -19,32 +20,35 @@ class App extends Component {
 
   render() {
     const { authedUser, loading, users } = this.props
+    console.log('app', this.props)
     return (
       <Router>
-        <div className='container'>
-          <LoadingBar />
-          <Nav user={users[authedUser]} dispatch={this.props.dispatch} />
+          <div className='container'>
+            <LoadingBar />
+            <Nav user={users[authedUser]} dispatch={this.props.dispatch} />
 
-          {loading === true
-            ? null
-            : !authedUser
-              ? <LogIn />
-              : <div>
-                  <Route path='/' exact component={QuestionPage}/>
-                  <Route path='/add' exact component={NewQuestion}/>
-                  <Route path='/questions/:id' exact component={QuestionDetail} />
-                  <Route path='/leaderboard' exact component={LeaderBoard}/>
-                </div>
-          }
-        </div>
+            {loading === true
+              ? null
+              : !authedUser
+                ? <LogIn />
+                : <div>
+                    <Route path='/' exact component={QuestionPage}/>
+                    <Route path='/add' exact component={NewQuestion}/>
+                    <Route path='/questions/:id' exact component={QuestionDetail} />
+                    <Route path='/leaderboard' exact component={LeaderBoard}/>
+                    <Route path='/*' component={PageNotFound}/>
+                  </div>
+            }
+          </div>
       </Router>
     );
   }
 }
 
-function mapStateToProps({users, authedUser}) {
+function mapStateToProps({users, authedUser}, props) {
+  console.log('app', props)
   return {
-    loading: users === null,
+    loading: Object.keys(users).length === 0,
     authedUser,
     users
   }
