@@ -16,7 +16,7 @@ class Nav extends Component {
                         <NavLink to='/' exact activeClassName='active'>Home</NavLink>
                     </li>
                     <li>
-                        <NavLink to='/new' exact activeClassName='active'>New Question</NavLink>
+                        <NavLink to='/add' exact activeClassName='active'>New Question</NavLink>
                     </li>
                     <li>
                         <NavLink to='/ranking' exact activeClassName='active'>Leader board</NavLink>
