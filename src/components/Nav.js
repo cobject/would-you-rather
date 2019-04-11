@@ -19,7 +19,7 @@ class Nav extends Component {
                         <NavLink to='/add' exact activeClassName='active'>New Question</NavLink>
                     </li>
                     <li>
-                        <NavLink to='/ranking' exact activeClassName='active'>Leader board</NavLink>
+                        <NavLink to='/leaderboard' exact activeClassName='active'>Leader board</NavLink>
                     </li>
                     {this.props.user ? <li>hello, {this.props.user.name}</li> : null}
                     {this.props.user
