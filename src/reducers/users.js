@@ -8,7 +8,6 @@ export default function users(state = {}, action) {
                 ...action.users
             }
         case ASK_QUESTION:
-            console.log('aaa', action.user)
             return {
                 ...state,
                 [action.user]: {
