@@ -9,8 +9,7 @@ import NewQuestion from './NewQuestion'
 import LogIn from './LogIn'
 import QuestionPage from './QuestionPage'
 import LeaderBoard from './LeaderBoard'
-import Result from './Result'
-import Answer from './Answer'
+import QuestionDetail from './QuestionDetail'
 import Nav from './Nav'
 
 class App extends Component {
@@ -33,8 +32,7 @@ class App extends Component {
               : <div>
                   <Route path='/' exact component={QuestionPage}/>
                   <Route path='/add' exact component={NewQuestion}/>
-                  <Route path='/question/:id' exact component={Result} />
-                  <Route path='/answer/:id' exact component={Answer} />
+                  <Route path='/questions/:id' exact component={QuestionDetail} />
                   <Route path='/leaderboard' exact component={LeaderBoard}/>
                 </div>
           }

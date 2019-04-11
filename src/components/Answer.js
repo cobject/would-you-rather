@@ -66,8 +66,7 @@ class Answer extends Component {
     }
 }
 
-function mapStateToProps({users, questions, authedUser}, props) {
-    const { id } = props.match.params
+function mapStateToProps({users, questions, authedUser}, {id}) {
     return {
         question: questions[id],
         avatarURL: users[questions[id].author].avatarURL,

@@ -32,8 +32,7 @@ class Result extends Component {
     }
 }
 
-function mapStateToProps({questions, users}, props) {
-    const { id } = props.match.params
+function mapStateToProps({questions, users}, {id}) {
     return {
         users,
         question: questions[id],
